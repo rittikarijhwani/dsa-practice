@@ -1,0 +1,15 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        ans = ""       
+        # find min and max words among strs
+        minWord = min(strs)
+        maxWord = max(strs)
+        i = 0
+        N = min(len(minWord), len(maxWord)) 
+        while i < N: #for all letters (till length of smallest string)
+            if minWord[i] == maxWord[i]:
+                ans = ans + minWord[i] # add char to the answer if chars are equal
+            else:
+                break
+            i = i+1 #to not make it infinite
+        return ans
