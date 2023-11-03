@@ -1,0 +1,21 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        total = 0
+        dic = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+
+        for i in s:
+            total = total + dic[i]
+
+        if "IV" in s:
+            total = total - 2 #as we add 1 in the string and because it is roman we have to subtract 1
+        if "IX" in s:
+            total = total - 2
+        if "XL" in s:
+            total = total - 20 #same logic as 1 but with 10
+        if "XC" in s:
+            total = total - 20
+        if "CD" in s:
+            total = total - 200 #same logic as 1 but with 100
+        if "CM" in s:
+            total = total - 200
+        return total  
